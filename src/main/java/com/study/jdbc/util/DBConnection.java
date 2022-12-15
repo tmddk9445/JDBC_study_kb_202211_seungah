@@ -30,12 +30,14 @@ public class DBConnection {
 		try {
 			Class.forName(Driver.class.getName()); // Class.forName >> 드라이브 객체 생성
 			System.out.println("데이터베이스 드라이브 로딩 성공!");
-			
+
 			url = "jdbc:mysql://localhost:3306/subquery_study";
+			// >> 리턴을 하면 subquery_study에 연결
 			username = "root";
 			password = "root";
 
 			connection = DriverManager.getConnection(url, username, password);
+			// >> getConnection을 사용해 connection객체 생성(1)
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("드라이버 로딩 실패!");
@@ -44,7 +46,7 @@ public class DBConnection {
 			e.printStackTrace();
 			System.out.println("데이터베이스 연결 실패!");
 		}
-		return connection;
+		return connection; // >> 생성된 객체를 return(2)
 	}
 
 }
